@@ -411,7 +411,11 @@ async def list_tags(session=Depends(get_session)):
 
 @app.delete("/works/{work_id}")
 async def delete_work(work_id: int, session=Depends(get_session)):
-    result = await session.execute(select(Work).where(Work.id == work_id))
+    result = await session.execute(
+        select(Work)
+        .where(Work.id == work_id)
+        .options(selectinload(Work.tags))
+    )
     work = result.scalars().first()
     if not work:
         raise HTTPException(status_code=404, detail="not found")
