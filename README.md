@@ -32,7 +32,7 @@ docker compose down
 - Frontend: React + Vite
 - Backend: FastAPI
 - DB: PostgreSQL
-- コンテナ: Docker / docker-compose
+- コンテナ: Docker / Docker Compose
 
 ## バックアップ（例）
 ```bash
