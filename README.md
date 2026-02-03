@@ -1,30 +1,40 @@
 # DoujinShelf
 
-同人誌を管理するための個人向けDBシステムです。
-
-## 主な機能
-- 作品登録/編集/削除
-- 画像アップロード（表紙1枚）
-- タグ、作者、サークル、イベントの管理
-- 自由項目（キー/値）
-- 作品/作者/サークル/イベント/タグの一覧と検索
+同人誌を個人で管理するためのDBシステムです。  
+タグ・作者・サークル・イベント・自由項目をまとめて整理できます。
 
 ## 必要なアプリ
 - Docker Desktop（Windows/macOS）
 
-## 起動方法
+## Quick Start（初めての方向け）
+1. Docker Desktop をインストールして起動する  
+2. このリポジトリを取得する  
+3. ルートで以下を実行する
+   ```bash
+   docker compose up --build
+   ```
+4. 起動ログに表示されるローカルのUIアドレスをブラウザで開く  
+   ※ うまく表示されない場合は、Docker Desktop が起動しているか確認してください。
+
+停止する場合:
 ```bash
-docker compose up --build
+docker compose down
 ```
 
-## アクセス
-- Web UI: http://localhost:5173
-- API: http://localhost:8080
+## 使い方（画面の概要）
+- 登録: 「登録」タブで作品を入力して保存  
+- 一覧: 「作品一覧」タブでカード表示・検索・サイズ切替  
+- 作者/サークル/イベント/タグ一覧: 各一覧からクリックで作品一覧へ絞り込み  
+- 編集/削除: 作品カードの「編集」「削除」ボタン
 
-## データベース
-PostgreSQL を使用しています。
+## 技術スタック
+- Frontend: React + Vite
+- Backend: FastAPI
+- DB: PostgreSQL
+- コンテナ: Docker / docker-compose
 
 ## バックアップ（例）
 ```bash
 docker compose exec db pg_dump -U doujin doujinshelf > backup.sql
 ```
+
