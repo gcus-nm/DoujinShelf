@@ -12,4 +12,7 @@
 
 ## Commit Messages
 - Use a prefix: `feat:`, `add:`, `remove:`, `fix:`, `chore:`
+- Messages should be in Japanese
 
+## Pull Requests
+- Title and description should be in Japanese
